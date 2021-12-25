@@ -1,3 +1,4 @@
+import { isExistsTypeAnnotation, typeAlias } from "@babel/types";
 
 
 function calculAir(longueur, largeur){
@@ -18,6 +19,18 @@ function afficherMessageCalculAir(a, b) {
     if(isNaN(air) || typeof a !== "number" || typeof b !== "number") {
         libelle = `L'air ne peut pas être calculée`;
     }
+    
+    return libelle;
+}
+
+function afficherMessageCalculAirCarre(longueur) {
+    const airCarre = calculAirCarre(longueur);
+    let libelle = `L'air est de ${airCarre}`;
+    if(isNaN(airCarre) || typeof longueur !== "number" ) {
+        libelle = `L'air ne peut pas être calculée`;
+    }
+
+    
     return libelle;
 }
 
@@ -25,5 +38,6 @@ export {
     calculAir,
     calculAirCarre,
     multiplication,
-    afficherMessageCalculAir
+    afficherMessageCalculAir,
+    afficherMessageCalculAirCarre
 } 
